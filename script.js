@@ -9,12 +9,70 @@
 ========================================= */
 
 const playlist = [
+
     {
-        title: "Gym Banger",
+        title: "Gym Banger 1",
         artist: "Gym Bhai",
-        videoId: "dQw4w9WgXcQ",
-        artwork: "https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg"
+        videoId: "Lq0S1lqEjxo",
+        artwork: "https://i.ytimg.com/vi/Lq0S1lqEjxo/hqdefault.jpg"
+    },
+
+    {
+        title: "Gym Banger 2",
+        artist: "Gym Bhai",
+        videoId: "INIMqJ7Vy_0",
+        artwork: "https://i.ytimg.com/vi/INIMqJ7Vy_0/hqdefault.jpg"
+    },
+
+    {
+        title: "Le Le Le Re Le Le Maza Le",
+        artist: "Wanted",
+        videoId: "Q7kv9nuhTB8",
+        artwork: "https://i.ytimg.com/vi/Q7kv9nuhTB8/hqdefault.jpg"
+    },
+
+    {
+        title: "Gym Banger 4",
+        artist: "Gym Bhai",
+        videoId: "bGNmNNZAU7c",
+        artwork: "https://i.ytimg.com/vi/bGNmNNZAU7c/hqdefault.jpg"
+    },
+
+    {
+        title: "Gym Banger 5",
+        artist: "Gym Bhai",
+        videoId: "5lKv7kdzBZs",
+        artwork: "https://i.ytimg.com/vi/5lKv7kdzBZs/hqdefault.jpg"
+    },
+
+    {
+        title: "Gym Banger 6",
+        artist: "Gym Bhai",
+        videoId: "GyU-glCZz3o",
+        artwork: "https://i.ytimg.com/vi/GyU-glCZz3o/hqdefault.jpg"
+    },
+
+    {
+        title: "Kiya Kiya",
+        artist: "Anand Raj Anand / Shweta Pandit",
+        videoId: "vjK02kjgDws",
+        artwork: "https://i.ytimg.com/vi/vjK02kjgDws/hqdefault.jpg"
+    },
+
+    {
+        title: "Gym Banger 8",
+        artist: "Gym Bhai",
+        videoId: "_zZ_2rDuDtQ",
+        artwork: "https://i.ytimg.com/vi/_zZ_2rDuDtQ/hqdefault.jpg"
+    },
+
+    {
+        title: "Gym Banger 9",
+        artist: "Gym Bhai",
+        videoId: "W-DwNBbkU20",
+        artwork: "https://i.ytimg.com/vi/W-DwNBbkU20/hqdefault.jpg"
     }
+
 ];
 
 
