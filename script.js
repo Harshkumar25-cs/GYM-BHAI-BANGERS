@@ -3,63 +3,63 @@ const playlist = [
     {
         title: "GOAT",
         artist: "Diljit Dosanjh",
-        src: "GOAT.mp3",
+        src: "music/GOAT.mp3",
         artwork: "https://i.ytimg.com/vi/Lq0S1lqEjxo/hqdefault.jpg"
     },
 
     {
         title: "JALWA",
         artist: "JALWA",
-        src: "JALWA.mp3",
+        src: "music/JALWA.mp3",
         artwork: "https://i.ytimg.com/vi/INIMqJ7Vy_0/hqdefault.jpg"
     },
 
     {
         title: "LE LE MAZAA LE",
         artist: "Sajid-Wajid",
-        src: "LE LE MAZAA LE.mp3",
+        src: "music/LE%20LE%20MAZAA%20LE.mp3",
         artwork: "https://i.ytimg.com/vi/Q7kv9nuhTB8/hqdefault.jpg"
     },
 
     {
         title: "LOVE ME LOVE ME",
         artist: "Sajid-Wajid",
-        src: "LOVE ME LOVE ME.mp3",
+        src: "music/LOVE%20ME%20LOVE%20ME.mp3",
         artwork: "https://i.ytimg.com/vi/bGNmNNZAU7c/hqdefault.jpg"
     },
 
     {
         title: "HANGOVER",
         artist: "Salman Khan",
-        src: "HANGOVER.mp3",
+        src: "music/HANGOVER.mp3",
         artwork: "https://i.ytimg.com/vi/5lKv7kdzBZs/hqdefault.jpg"
     },
 
     {
         title: "O O JAANE JAANA",
         artist: "Kamaal Khan",
-        src: "O O JAANE JAANA.mp3",
+        src: "music/O%20O%20JAANE%20JAANA.mp3",
         artwork: "https://i.ytimg.com/vi/GyU-glCZz3o/hqdefault.jpg"
     },
 
     {
-        title: "Kiya Kiya",
+        title: "KIYA KIYA",
         artist: "Anand Raj Anand • Shweta Pandit",
-        src: "Kiya Kiya.mp3",
+        src: "music/Kiya%20Kiya.mp3",
         artwork: "https://i.ytimg.com/vi/vjK02kjgDws/hqdefault.jpg"
     },
 
     {
         title: "Raftaarein",
         artist: "Raftaarein",
-        src: "Raftaarein.mp3",
+        src: "music/Raftaarein.mp3",
         artwork: "https://i.ytimg.com/vi/_zZ_2rDuDtQ/hqdefault.jpg"
     },
 
     {
         title: "Tera Mera Rishta Continues",
         artist: "Awarapan 2",
-        src: "Tera Mera Rishta Continues (From _Awarapan 2...).mp3",
+        src: "music/Tera%20Mera%20Rishta%20Continues%20%28From%20%2AAwarapan%202%2A%29.mp3",
         artwork: "https://i.ytimg.com/vi/W-DwNBbkU20/hqdefault.jpg"
     }
 
