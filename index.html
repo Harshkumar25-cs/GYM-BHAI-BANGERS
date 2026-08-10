@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Gym Bhai Bangers</title>
@@ -12,125 +13,203 @@
 
 <body>
 
-    <div class="overlay">
+    <!-- Background Overlay -->
+    <div class="background-overlay"></div>
 
-        <header>
-            <h1>GYM BHAI BANGERS</h1>
-            <p>NO EXCUSES. JUST GAINS.</p>
-        </header>
 
-        <main class="player">
+    <!-- TOP BAR -->
 
-            <!-- YouTube Player -->
-            <div class="youtube-container">
+    <header class="top-bar">
 
-                <div id="youtube-player"></div>
+        <!-- Time -->
+
+        <div class="top-left">
+
+            <div id="clock">
+                11:58 PM
+            </div>
+
+        </div>
+
+
+        <!-- Online Users -->
+
+        <div class="online-status">
+
+            <span class="online-dot"></span>
+
+            <span id="online-count">
+                27
+            </span>
+
+            <span>
+                online
+            </span>
+
+        </div>
+
+
+        <!-- Music Links -->
+
+        <div class="music-links">
+
+            <a
+                href="https://open.spotify.com/"
+                target="_blank"
+                class="music-link"
+            >
+
+                <span class="spotify-icon">
+                    ●
+                </span>
+
+                Spotify
+
+                <span class="external">
+                    ↗
+                </span>
+
+            </a>
+
+
+            <a
+                href="https://music.youtube.com/"
+                target="_blank"
+                class="music-link"
+            >
+
+                <span class="youtube-music-icon">
+                    ▶
+                </span>
+
+                YT Music
+
+                <span class="external">
+                    ↗
+                </span>
+
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main>
+
+        <!-- Music Player -->
+
+        <section class="music-player">
+
+
+            <!-- Album Artwork -->
+
+            <div class="album-art">
+
+                <img
+                    id="album-image"
+                    src="https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg"
+                    alt="Album Artwork"
+                >
 
             </div>
 
 
             <!-- Song Information -->
 
-            <div class="song-info">
+            <div class="song-section">
 
-                <h2 id="song-title">
+                <div class="song-title" id="song-title">
                     Gym Banger
-                </h2>
+                </div>
 
-                <p id="artist">
+                <div class="artist-name" id="artist-name">
                     Gym Bhai
-                </p>
-
-            </div>
+                </div>
 
 
-            <!-- Progress Bar -->
+                <!-- Progress -->
 
-            <div class="progress-container">
+                <div class="progress-area">
 
-                <span id="current-time">
-                    0:00
-                </span>
+                    <input
+                        type="range"
+                        id="progress"
+                        min="0"
+                        max="100"
+                        value="0"
+                    >
 
-                <input
-                    type="range"
-                    id="progress"
-                    value="0"
-                    min="0"
-                    max="100"
-                >
+                    <div class="time-display">
 
-                <span id="duration">
-                    0:00
-                </span>
+                        <span id="current-time">
+                            0:00
+                        </span>
+
+                        <span id="total-time">
+                            0:00
+                        </span>
+
+                    </div>
+
+                </div>
 
             </div>
 
 
             <!-- Controls -->
 
-            <div class="controls">
+            <div class="player-controls">
 
-                <button id="previous">
-                    ⏮
+                <button
+                    id="previous"
+                    class="control-button"
+                    aria-label="Previous song"
+                >
+                    ◀◀
                 </button>
 
-                <button id="play">
+
+                <button
+                    id="play"
+                    class="play-button"
+                    aria-label="Play"
+                >
                     ▶
                 </button>
 
-                <button id="next">
-                    ⏭
+
+                <button
+                    id="next"
+                    class="control-button"
+                    aria-label="Next song"
+                >
+                    ▶▶
                 </button>
 
             </div>
 
-
-            <!-- Volume -->
-
-            <div class="volume">
-
-                <span>🔊</span>
-
-                <input
-                    type="range"
-                    id="volume"
-                    min="0"
-                    max="100"
-                    value="80"
-                >
-
-            </div>
+        </section>
 
 
-            <!-- Playlist -->
+        <!-- Hidden YouTube Player -->
 
-            <section class="playlist">
+        <div id="youtube-player-container">
 
-                <h3>YOUR BANGERS</h3>
+            <div id="youtube-player"></div>
 
-                <div class="track">
-                    🔥 Workout Banger 01
-                </div>
+        </div>
 
-                <div class="track">
-                    💀 Heavy Lift Mode
-                </div>
-
-                <div class="track">
-                    ⚡ Beast Mode
-                </div>
-
-            </section>
-
-        </main>
-
-    </div>
+    </main>
 
 
     <!-- YouTube API -->
 
     <script src="https://www.youtube.com/iframe_api"></script>
+
+    <!-- Website JavaScript -->
 
     <script src="script.js"></script>
 
