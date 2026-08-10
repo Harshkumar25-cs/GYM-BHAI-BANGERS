@@ -22,8 +22,13 @@
 
 <body>
 
-    <!-- Background Overlay -->
+
+    <!-- =========================================
+         BACKGROUND OVERLAY
+    ========================================== -->
+
     <div class="background-overlay"></div>
+
 
 
     <!-- =========================================
@@ -32,7 +37,9 @@
 
     <header class="top-bar">
 
-        <!-- Time -->
+
+        <!-- TIME -->
+
         <div class="top-left">
 
             <div id="clock">
@@ -42,7 +49,9 @@
         </div>
 
 
-        <!-- Online Users -->
+
+        <!-- ONLINE USERS -->
+
         <div class="online-status">
 
             <span class="online-dot"></span>
@@ -58,8 +67,13 @@
         </div>
 
 
-        <!-- Music Links -->
+
+        <!-- MUSIC LINKS -->
+
         <div class="music-links">
+
+
+            <!-- SPOTIFY -->
 
             <a
                 href="https://open.spotify.com/"
@@ -83,6 +97,9 @@
             </a>
 
 
+
+            <!-- YOUTUBE MUSIC -->
+
             <a
                 href="https://music.youtube.com/"
                 target="_blank"
@@ -104,7 +121,9 @@
 
             </a>
 
+
         </div>
+
 
     </header>
 
@@ -116,11 +135,16 @@
 
     <main>
 
-        <!-- Music Player -->
+
+        <!-- MUSIC PLAYER -->
+
         <section class="music-player">
 
 
-            <!-- Album Artwork -->
+            <!-- =====================================
+                 ALBUM ART
+            ====================================== -->
+
             <div class="album-art">
 
                 <img
@@ -132,20 +156,35 @@
             </div>
 
 
-            <!-- Song Information -->
+
+            <!-- =====================================
+                 SONG INFORMATION
+            ====================================== -->
+
             <div class="song-section">
+
+
+                <!-- SONG TITLE -->
 
                 <div id="song-title">
                     Loading...
                 </div>
+
+
+                <!-- ARTIST -->
 
                 <div id="artist-name">
                     Loading...
                 </div>
 
 
-                <!-- Progress -->
+
+                <!-- =================================
+                     PROGRESS
+                ================================== -->
+
                 <div class="progress-area">
+
 
                     <input
                         type="range"
@@ -159,25 +198,36 @@
 
                     <div class="time-display">
 
+
                         <span id="current-time">
                             0:00
                         </span>
+
 
                         <span id="total-time">
                             0:00
                         </span>
 
+
                     </div>
 
+
                 </div>
+
 
             </div>
 
 
-            <!-- Controls -->
+
+            <!-- =====================================
+                 PLAYER CONTROLS
+            ====================================== -->
+
             <div class="player-controls">
 
-                <!-- Previous -->
+
+                <!-- PREVIOUS -->
+
                 <button
                     id="previous"
                     class="control-button"
@@ -188,7 +238,9 @@
                 </button>
 
 
-                <!-- Play / Pause -->
+
+                <!-- PLAY / PAUSE -->
+
                 <button
                     id="play"
                     class="play-button"
@@ -199,7 +251,9 @@
                 </button>
 
 
-                <!-- Next -->
+
+                <!-- NEXT -->
+
                 <button
                     id="next"
                     class="control-button"
@@ -209,9 +263,12 @@
                     ▶▶
                 </button>
 
+
             </div>
 
+
         </section>
+
 
     </main>
 
@@ -233,14 +290,19 @@
          YOUTUBE IFRAME API
     ========================================== -->
 
-    <script src="https://www.youtube.com/iframe_api"></script>
+    <script
+        src="https://www.youtube.com/iframe_api"
+    ></script>
+
 
 
     <!-- =========================================
          GYM BHAI BANGERS JAVASCRIPT
     ========================================== -->
 
-    <script src="script.js"></script>
+    <script
+        src="script.js"
+    ></script>
 
 
 </body>
