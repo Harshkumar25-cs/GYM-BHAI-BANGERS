@@ -330,67 +330,44 @@ playButton.addEventListener(
    PREVIOUS
 ========================================= */
 
-previousButton.addEventListener(
-    "click",
-    function () {
+previousButton.addEventListener("click", function () {
 
-        if (!playerReady) {
-            return;
-        }
+    console.log("PREVIOUS BUTTON CLICKED");
 
+    currentSong--;
 
-        currentSong--;
-
-        if (currentSong < 0) {
-
-            currentSong =
-                playlist.length - 1;
-        }
-
-
-        loadSong(currentSong);
+    if (currentSong < 0) {
+        currentSong = playlist.length - 1;
     }
-);
 
+    loadSong(currentSong);
+
+});
 
 /* =========================================
    NEXT
 ========================================= */
 
-nextButton.addEventListener(
-    "click",
-    function () {
+nextButton.addEventListener("click", function () {
 
-        playNextSong();
+    console.log("NEXT BUTTON CLICKED");
 
+    currentSong++;
+
+    if (currentSong >= playlist.length) {
+        currentSong = 0;
     }
-);
+
+    loadSong(currentSong);
+
+});
 
 
 /* =========================================
    NEXT SONG FUNCTION
 ========================================= */
 
-function playNextSong() {
 
-    if (!playerReady) {
-        return;
-    }
-
-
-    currentSong++;
-
-    if (
-        currentSong >=
-        playlist.length
-    ) {
-
-        currentSong = 0;
-    }
-
-
-    loadSong(currentSong);
-}
 
 
 /* =========================================
@@ -401,33 +378,31 @@ function loadSong(index) {
 
     currentSong = index;
 
-    const song =
-        playlist[currentSong];
+    const song = playlist[currentSong];
 
+    console.log("Loading song:", song.title);
+    console.log("Video ID:", song.videoId);
 
-    updateSongInfo();
+    // Update player information
+    songTitle.textContent = song.title;
+    artistName.textContent = song.artist;
+    albumImage.src = song.artwork;
 
-
-    currentTimeElement.textContent =
-        "0:00";
-
-
-    totalTimeElement.textContent =
-        "0:00";
-
-
+    // Reset progress
     progressBar.value = 0;
+    currentTimeElement.textContent = "0:00";
+    totalTimeElement.textContent = "0:00";
 
+    // Reset play button
+    playButton.textContent = "▶";
 
-    playButton.textContent =
-        "▶";
+    // Load the new YouTube video
+    if (playerReady && player) {
 
-
-    if (playerReady) {
-
-        player.loadVideoById(
-            song.videoId
-        );
+        player.loadVideoById({
+            videoId: song.videoId,
+            startSeconds: 0
+        });
 
     }
 }
