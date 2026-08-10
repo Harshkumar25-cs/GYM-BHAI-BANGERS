@@ -11,8 +11,8 @@
 const playlist = [
 
     {
-        title: "Born to Shine",
-        artist: "DILJIT DOSANJH G.O.A.T",
+        title: "GOAT",
+        artist: "DILJIT DOSANJH",
         videoId: "Lq0S1lqEjxo",
         artwork: "https://i.ytimg.com/vi/Lq0S1lqEjxo/hqdefault.jpg"
     },
@@ -25,7 +25,7 @@ const playlist = [
     },
 
     {
-        title: "Le Le Le Re Le Le Maza Le",
+        title: "LE LE MAZA LE",
         artist: "Sajid-Wajid • Wanted",
         videoId: "Q7kv9nuhTB8",
         artwork: "https://i.ytimg.com/vi/Q7kv9nuhTB8/hqdefault.jpg"
@@ -47,13 +47,13 @@ const playlist = [
 
     {
         title: "O O JAANE JAANA",
-        artist: "KAMAAL KHAN, JATIN-LALIT & SAMEER",
+        artist: "Kamaal Khan",
         videoId: "GyU-glCZz3o",
         artwork: "https://i.ytimg.com/vi/GyU-glCZz3o/hqdefault.jpg"
     },
 
     {
-        title: "Kiya Kiya",
+        title: "KIYA KIYA",
         artist: "Anand Raj Anand • Shweta Pandit",
         videoId: "vjK02kjgDws",
         artwork: "https://i.ytimg.com/vi/vjK02kjgDws/hqdefault.jpg"
@@ -67,8 +67,8 @@ const playlist = [
     },
 
     {
-        title: 'Tera Mera Rishta Continues (From "Awarapan 2")',
-        artist: "Mithoon, Pritam, Mustafa Zahid & Sayeed Quadri",
+        title: 'Tera Mera Rishta Continues',
+        artist: 'From "Awarapan 2"',
         videoId: "W-DwNBbkU20",
         artwork: "https://i.ytimg.com/vi/W-DwNBbkU20/hqdefault.jpg"
     }
@@ -476,69 +476,21 @@ function loadSong(index) {
 
     currentSong = index;
 
-    const song =
-        playlist[currentSong];
+    const song = playlist[currentSong];
 
-
-    console.log(
-        "Now playing:",
-        song.title
-    );
-
-
-    /* Update title */
-
-    songTitle.textContent =
-        song.title;
-
-
-    /* Update artist */
-
-    artistName.textContent =
-        song.artist;
-
-
-    /* Update artwork */
-
-    albumImage.src =
-        song.artwork;
-
-
-    albumImage.alt =
-        `${song.title} artwork`;
-
-
-    /* Reset progress */
+    songTitle.textContent = song.title;
+    artistName.textContent = song.artist;
+    albumImage.src = song.artwork;
 
     progressBar.value = 0;
+    currentTimeElement.textContent = "0:00";
+    totalTimeElement.textContent = "0:00";
 
-    currentTimeElement.textContent =
-        "0:00";
+    playButton.textContent = "▶";
 
-    totalTimeElement.textContent =
-        "0:00";
-
-
-    /* Change button to play */
-
-    playButton.textContent =
-        "▶";
-
-
-    /* Load YouTube video */
-
-    if (
-        playerReady &&
-        player
-    ) {
-
-        player.loadVideoById({
-            videoId: song.videoId,
-            startSeconds: 0
-        });
-
+    if (playerReady && player) {
+        player.loadVideoById(song.videoId);
     }
-
 }
 
 
