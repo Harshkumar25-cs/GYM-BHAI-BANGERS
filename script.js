@@ -59,7 +59,7 @@ const playlist = [
     {
   title: "Tera Mera Rishta Continues",
   artist: "Awarapan 2",
-  src: "music/Tera Mera Rishta Continues.mp3",
+  src: "music/Tera%20Mera%20Rishta%20Continues.mp3",
   artwork: "https://i.ytimg.com/vi/W-DwNBbkU20/hqdefault.jpg"
 }
 ];
