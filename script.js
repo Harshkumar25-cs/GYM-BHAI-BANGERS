@@ -2,69 +2,68 @@ const playlist = [
 
     {
         title: "GOAT",
-        artist: "DILJIT DOSANJH",
-        src: "music/goat.mp3",
+        artist: "Diljit Dosanjh",
+        src: "GOAT.mp3",
         artwork: "https://i.ytimg.com/vi/Lq0S1lqEjxo/hqdefault.jpg"
     },
 
     {
         title: "JALWA",
-        artist: "SAJID-WAJID",
-        src: "music/jalwa.mp3",
+        artist: "JALWA",
+        src: "JALWA.mp3",
         artwork: "https://i.ytimg.com/vi/INIMqJ7Vy_0/hqdefault.jpg"
     },
 
     {
-        title: "LE LE MAZA LE",
+        title: "LE LE MAZAA LE",
         artist: "Sajid-Wajid",
-        src: "music/le-le-maza-le.mp3",
+        src: "LE LE MAZAA LE.mp3",
         artwork: "https://i.ytimg.com/vi/Q7kv9nuhTB8/hqdefault.jpg"
     },
 
     {
         title: "LOVE ME LOVE ME",
         artist: "Sajid-Wajid",
-        src: "music/love-me-love-me.mp3",
+        src: "LOVE ME LOVE ME.mp3",
         artwork: "https://i.ytimg.com/vi/bGNmNNZAU7c/hqdefault.jpg"
     },
 
     {
         title: "HANGOVER",
-        artist: "Meet Bros Anjjan, Shreya Ghoshal & Salman Khan",
-        src: "music/hangover.mp3",
+        artist: "Salman Khan",
+        src: "HANGOVER.mp3",
         artwork: "https://i.ytimg.com/vi/5lKv7kdzBZs/hqdefault.jpg"
     },
 
     {
         title: "O O JAANE JAANA",
         artist: "Kamaal Khan",
-        src: "music/oo-jaane-jaana.mp3",
+        src: "O O JAANE JAANA.mp3",
         artwork: "https://i.ytimg.com/vi/GyU-glCZz3o/hqdefault.jpg"
     },
 
     {
-        title: "KIYA KIYA",
+        title: "Kiya Kiya",
         artist: "Anand Raj Anand • Shweta Pandit",
-        src: "music/kiya-kiya.mp3",
+        src: "Kiya Kiya.mp3",
         artwork: "https://i.ytimg.com/vi/vjK02kjgDws/hqdefault.jpg"
     },
 
     {
         title: "Raftaarein",
-        artist: "Vishal-Shekhar",
-        src: "music/raftaarein.mp3",
+        artist: "Raftaarein",
+        src: "Raftaarein.mp3",
         artwork: "https://i.ytimg.com/vi/_zZ_2rDuDtQ/hqdefault.jpg"
     },
 
     {
         title: "Tera Mera Rishta Continues",
-        artist: 'From "Awarapan 2"',
-        src: "music/tera-mera-rishta.mp3",
+        artist: "Awarapan 2",
+        src: "Tera Mera Rishta Continues (From _Awarapan 2...).mp3",
         artwork: "https://i.ytimg.com/vi/W-DwNBbkU20/hqdefault.jpg"
     }
 
 ];
-
 
 let currentSong = 0;
 
