@@ -12,7 +12,7 @@ const playlist = [
 
     {
         title: "Born to Shine",
-        artist: "DILJIT DOSANJH  G.O.A.T",
+        artist: "DILJIT DOSANJH G.O.A.T",
         videoId: "Lq0S1lqEjxo",
         artwork: "https://i.ytimg.com/vi/Lq0S1lqEjxo/hqdefault.jpg"
     },
@@ -33,7 +33,7 @@ const playlist = [
 
     {
         title: "LOVE ME LOVE ME",
-        artist: "WAJID,AMRITA KAK, SAJID-WAJID and JALEES SHERWANI",
+        artist: "WAJID, AMRITA KAK, SAJID-WAJID and JALEES SHERWANI",
         videoId: "bGNmNNZAU7c",
         artwork: "https://i.ytimg.com/vi/bGNmNNZAU7c/hqdefault.jpg"
     },
@@ -67,7 +67,7 @@ const playlist = [
     },
 
     {
-        title: "Tera Mera Rishta Continues (From "Awarapan 2")",
+        title: 'Tera Mera Rishta Continues (From "Awarapan 2")',
         artist: "Mithoon, Pritam, Mustafa Zahid & Sayeed Quadri",
         videoId: "W-DwNBbkU20",
         artwork: "https://i.ytimg.com/vi/W-DwNBbkU20/hqdefault.jpg"
@@ -87,7 +87,7 @@ let progressTimer = null;
 
 
 /* =========================================
-   ELEMENTS
+   HTML ELEMENTS
 ========================================= */
 
 const playButton = document.getElementById("play");
@@ -143,7 +143,7 @@ setInterval(updateClock, 1000);
 
 
 /* =========================================
-   LOAD SONG INFO
+   UPDATE SONG INFORMATION
 ========================================= */
 
 function updateSongInfo() {
@@ -155,11 +155,13 @@ function updateSongInfo() {
     artistName.textContent = song.artist;
 
     albumImage.src = song.artwork;
+
+    albumImage.alt = `${song.title} artwork`;
 }
 
 
 /* =========================================
-   YOUTUBE API
+   YOUTUBE IFRAME API
 ========================================= */
 
 function onYouTubeIframeAPIReady() {
@@ -169,6 +171,7 @@ function onYouTubeIframeAPIReady() {
     player = new YT.Player(
         "youtube-player",
         {
+
             width: "200",
             height: "200",
 
@@ -176,17 +179,27 @@ function onYouTubeIframeAPIReady() {
                 playlist[currentSong].videoId,
 
             playerVars: {
+
                 autoplay: 0,
+
                 controls: 0,
+
                 playsinline: 1,
+
                 rel: 0
+
             },
 
             events: {
+
                 onReady: onPlayerReady,
+
                 onStateChange: onPlayerStateChange,
+
                 onError: onPlayerError
+
             }
+
         }
     );
 }
@@ -202,15 +215,26 @@ function onPlayerReady(event) {
 
     playerReady = true;
 
+    /* Show first song information */
+    updateSongInfo();
+
+    /* Get duration */
     updateDuration();
 
+    /* Start progress timer */
     startProgressTimer();
 
+    /* Enable controls */
     playButton.disabled = false;
 
     previousButton.disabled = false;
 
     nextButton.disabled = false;
+
+    console.log(
+        "Ready to play:",
+        playlist[currentSong].title
+    );
 }
 
 
@@ -224,11 +248,12 @@ function onPlayerError(event) {
         "YouTube Player Error:",
         event.data
     );
+
 }
 
 
 /* =========================================
-   PLAYER STATE
+   PLAYER STATE CHANGE
 ========================================= */
 
 function onPlayerStateChange(event) {
@@ -239,6 +264,8 @@ function onPlayerStateChange(event) {
     );
 
 
+    /* PLAYING */
+
     if (
         event.data ===
         YT.PlayerState.PLAYING
@@ -247,8 +274,13 @@ function onPlayerStateChange(event) {
         playButton.textContent = "❚❚";
 
         startProgressTimer();
+
+        updateDuration();
+
     }
 
+
+    /* PAUSED */
 
     else if (
         event.data ===
@@ -256,8 +288,11 @@ function onPlayerStateChange(event) {
     ) {
 
         playButton.textContent = "▶";
+
     }
 
+
+    /* ENDED */
 
     else if (
         event.data ===
@@ -265,8 +300,11 @@ function onPlayerStateChange(event) {
     ) {
 
         playNextSong();
+
     }
 
+
+    /* CUED */
 
     else if (
         event.data ===
@@ -274,34 +312,43 @@ function onPlayerStateChange(event) {
     ) {
 
         updateDuration();
+
     }
+
 }
 
 
 /* =========================================
-   PLAY / PAUSE
+   PLAY / PAUSE BUTTON
 ========================================= */
 
 playButton.addEventListener(
     "click",
     function () {
 
-        console.log("Play button clicked.");
+        console.log(
+            "Play/Pause button clicked."
+        );
 
 
-        if (!playerReady) {
+        /* Check if player is ready */
+
+        if (!playerReady || !player) {
 
             console.log(
                 "YouTube player is not ready yet."
             );
 
             return;
+
         }
 
 
         const state =
             player.getPlayerState();
 
+
+        /* If playing → pause */
 
         if (
             state ===
@@ -313,6 +360,9 @@ playButton.addEventListener(
             playButton.textContent = "▶";
 
         }
+
+
+        /* Otherwise → play */
 
         else {
 
@@ -327,47 +377,95 @@ playButton.addEventListener(
 
 
 /* =========================================
-   PREVIOUS
+   PREVIOUS SONG
 ========================================= */
 
-previousButton.addEventListener("click", function () {
+previousButton.addEventListener(
+    "click",
+    function () {
 
-    console.log("PREVIOUS BUTTON CLICKED");
+        console.log(
+            "Previous button clicked."
+        );
 
-    currentSong--;
 
-    if (currentSong < 0) {
-        currentSong = playlist.length - 1;
+        currentSong--;
+
+
+        /* If before first song,
+           go to last song */
+
+        if (currentSong < 0) {
+
+            currentSong =
+                playlist.length - 1;
+
+        }
+
+
+        loadSong(currentSong);
+
     }
+);
 
-    loadSong(currentSong);
-
-});
 
 /* =========================================
-   NEXT
+   NEXT SONG
 ========================================= */
 
-nextButton.addEventListener("click", function () {
+nextButton.addEventListener(
+    "click",
+    function () {
 
-    console.log("NEXT BUTTON CLICKED");
+        console.log(
+            "Next button clicked."
+        );
+
+
+        currentSong++;
+
+
+        /* If after last song,
+           go back to first */
+
+        if (
+            currentSong >=
+            playlist.length
+        ) {
+
+            currentSong = 0;
+
+        }
+
+
+        loadSong(currentSong);
+
+    }
+);
+
+
+/* =========================================
+   AUTOMATIC NEXT SONG
+========================================= */
+
+function playNextSong() {
 
     currentSong++;
 
-    if (currentSong >= playlist.length) {
+
+    if (
+        currentSong >=
+        playlist.length
+    ) {
+
         currentSong = 0;
+
     }
+
 
     loadSong(currentSong);
 
-});
-
-
-/* =========================================
-   NEXT SONG FUNCTION
-========================================= */
-
-
+}
 
 
 /* =========================================
@@ -378,26 +476,61 @@ function loadSong(index) {
 
     currentSong = index;
 
-    const song = playlist[currentSong];
+    const song =
+        playlist[currentSong];
 
-    console.log("Now playing:", song.title);
 
-    // Update song information on the website
-    songTitle.textContent = song.title;
-    artistName.textContent = song.artist;
-    albumImage.src = song.artwork;
+    console.log(
+        "Now playing:",
+        song.title
+    );
 
-    // Reset progress
+
+    /* Update title */
+
+    songTitle.textContent =
+        song.title;
+
+
+    /* Update artist */
+
+    artistName.textContent =
+        song.artist;
+
+
+    /* Update artwork */
+
+    albumImage.src =
+        song.artwork;
+
+
+    albumImage.alt =
+        `${song.title} artwork`;
+
+
+    /* Reset progress */
+
     progressBar.value = 0;
 
-    currentTimeElement.textContent = "0:00";
-    totalTimeElement.textContent = "0:00";
+    currentTimeElement.textContent =
+        "0:00";
 
-    // Reset play button
-    playButton.textContent = "▶";
+    totalTimeElement.textContent =
+        "0:00";
 
-    // Load the selected YouTube video
-    if (playerReady && player) {
+
+    /* Change button to play */
+
+    playButton.textContent =
+        "▶";
+
+
+    /* Load YouTube video */
+
+    if (
+        playerReady &&
+        player
+    ) {
 
         player.loadVideoById({
             videoId: song.videoId,
@@ -405,6 +538,7 @@ function loadSong(index) {
         });
 
     }
+
 }
 
 
@@ -414,8 +548,13 @@ function loadSong(index) {
 
 function updateDuration() {
 
-    if (!playerReady) {
+    if (
+        !playerReady ||
+        !player
+    ) {
+
         return;
+
     }
 
 
@@ -430,7 +569,9 @@ function updateDuration() {
 
         totalTimeElement.textContent =
             formatTime(duration);
+
     }
+
 }
 
 
@@ -440,8 +581,13 @@ function updateDuration() {
 
 function updateProgress() {
 
-    if (!playerReady) {
+    if (
+        !playerReady ||
+        !player
+    ) {
+
         return;
+
     }
 
 
@@ -462,17 +608,25 @@ function updateProgress() {
             (current / duration) * 100;
 
 
+        /* Update slider */
+
         progressBar.value =
             percentage;
 
+
+        /* Update current time */
 
         currentTimeElement.textContent =
             formatTime(current);
 
 
+        /* Update total time */
+
         totalTimeElement.textContent =
             formatTime(duration);
+
     }
+
 }
 
 
@@ -482,7 +636,9 @@ function updateProgress() {
 
 function startProgressTimer() {
 
-    clearInterval(progressTimer);
+    clearInterval(
+        progressTimer
+    );
 
 
     progressTimer =
@@ -490,19 +646,25 @@ function startProgressTimer() {
             updateProgress,
             500
         );
+
 }
 
 
 /* =========================================
-   PROGRESS SLIDER
+   PROGRESS SLIDER - LIVE
 ========================================= */
 
 progressBar.addEventListener(
     "input",
     function () {
 
-        if (!playerReady) {
+        if (
+            !playerReady ||
+            !player
+        ) {
+
             return;
+
         }
 
 
@@ -511,27 +673,40 @@ progressBar.addEventListener(
 
 
         if (!duration) {
+
             return;
+
         }
 
 
         const newTime =
-            (progressBar.value / 100)
-            * duration;
+            (
+                progressBar.value / 100
+            ) * duration;
 
 
         currentTimeElement.textContent =
             formatTime(newTime);
+
     }
 );
 
+
+/* =========================================
+   PROGRESS SLIDER - SEEK
+========================================= */
 
 progressBar.addEventListener(
     "change",
     function () {
 
-        if (!playerReady) {
+        if (
+            !playerReady ||
+            !player
+        ) {
+
             return;
+
         }
 
 
@@ -540,19 +715,23 @@ progressBar.addEventListener(
 
 
         if (!duration) {
+
             return;
+
         }
 
 
         const newTime =
-            (progressBar.value / 100)
-            * duration;
+            (
+                progressBar.value / 100
+            ) * duration;
 
 
         player.seekTo(
             newTime,
             true
         );
+
     }
 );
 
@@ -569,6 +748,7 @@ function formatTime(seconds) {
     ) {
 
         return "0:00";
+
     }
 
 
@@ -577,7 +757,9 @@ function formatTime(seconds) {
 
 
     const minutes =
-        Math.floor(seconds / 60);
+        Math.floor(
+            seconds / 60
+        );
 
 
     const remainingSeconds =
@@ -587,6 +769,7 @@ function formatTime(seconds) {
     return `${minutes}:${String(
         remainingSeconds
     ).padStart(2, "0")}`;
+
 }
 
 
