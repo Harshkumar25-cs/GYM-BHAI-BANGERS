@@ -547,33 +547,35 @@ main {
 
 /* =========================================
    HIDDEN YOUTUBE PLAYER
+   YouTube requires at least 200x200
 ========================================= */
 
 #youtube-player-container {
     position: fixed;
 
-    width: 1px;
+    width: 200px;
 
-    height: 1px;
+    height: 200px;
 
-    left: -100px;
+    left: -220px;
 
-    top: -100px;
+    top: 0;
 
     overflow: hidden;
 
     opacity: 0;
 
     pointer-events: none;
+
+    z-index: -1;
 }
 
 
 #youtube-player {
-    width: 1px;
+    width: 200px;
 
-    height: 1px;
+    height: 200px;
 }
-
 
 /* =========================================
    MOBILE
