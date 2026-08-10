@@ -3,9 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Gym Bhai Bangers</title>
 
@@ -21,13 +19,17 @@
             <p>NO EXCUSES. JUST GAINS.</p>
         </header>
 
-
         <main class="player">
 
-            <div class="album">
-                <div class="music-icon">🎵</div>
+            <!-- YouTube Player -->
+            <div class="youtube-container">
+
+                <div id="youtube-player"></div>
+
             </div>
 
+
+            <!-- Song Information -->
 
             <div class="song-info">
 
@@ -41,6 +43,8 @@
 
             </div>
 
+
+            <!-- Progress Bar -->
 
             <div class="progress-container">
 
@@ -63,6 +67,8 @@
             </div>
 
 
+            <!-- Controls -->
+
             <div class="controls">
 
                 <button id="previous">
@@ -80,6 +86,8 @@
             </div>
 
 
+            <!-- Volume -->
+
             <div class="volume">
 
                 <span>🔊</span>
@@ -94,6 +102,8 @@
 
             </div>
 
+
+            <!-- Playlist -->
 
             <section class="playlist">
 
@@ -116,6 +126,11 @@
         </main>
 
     </div>
+
+
+    <!-- YouTube API -->
+
+    <script src="https://www.youtube.com/iframe_api"></script>
 
     <script src="script.js"></script>
 
