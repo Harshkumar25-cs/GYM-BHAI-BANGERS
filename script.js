@@ -1,115 +1,141 @@
+/* =========================================
+   SALMAN HITS
+   Local Music Player
+========================================= */
+
+
+/* =========================================
+   PLAYLIST
+========================================= */
+
 const playlist = [
 
     {
         title: "Chunnari Chunnari",
         artist: "Salman Hits",
-        src: "music/Chunnari%20Chunnari.mp3"
+        file: "music/Chunnari%20Chunnari.mp3",
+        artwork: "music/salman%20bhaii.png"
     },
 
     {
         title: "Dekha Hai Pehli Baar",
         artist: "Salman Hits",
-        src: "music/Dekha%20Hai%20Pehli%20Baar.mp3"
+        file: "music/Dekha%20Hai%20Pehli%20Baar.mp3",
+        artwork: "music/salman%20bhaii.png"
     },
 
     {
         title: "Dhinka Chika",
         artist: "Salman Hits",
-        src: "music/Dhinka%20Chika.mp3"
+        file: "music/Dhinka%20Chika.mp3",
+        artwork: "music/salman%20bhaii.png"
     },
 
     {
         title: "Dil Deewana",
         artist: "Salman Hits",
-        src: "music/Dil%20Deewana.mp3"
+        file: "music/Dil%20Deewana.mp3",
+        artwork: "music/salman%20bhaii.png"
     },
 
     {
         title: "Dil Diyan Gallan",
         artist: "Salman Hits",
-        src: "music/Dil%20Diyan%20Gallan%20(From%20_Tiger%20Zinda%20Hai_).mp3"
+        file: "music/Dil%20Diyan%20Gallan%20(From%20_Tiger%20Zinda%20Hai_).mp3",
+        artwork: "music/salman%20bhaii.png"
     },
 
     {
         title: "JALWA",
         artist: "Salman Hits",
-        src: "music/JALWA.mp3"
+        file: "music/JALWA.mp3",
+        artwork: "music/salman%20bhaii.png"
     },
 
     {
         title: "LE LE MAZAA LE",
         artist: "Salman Hits",
-        src: "music/LE%20LE%20MAZAA%20LE.mp3"
+        file: "music/LE%20LE%20MAZAA%20LE.mp3",
+        artwork: "music/salman%20bhaii.png"
     },
 
     {
         title: "LOVE ME LOVE ME",
         artist: "Salman Hits",
-        src: "music/LOVE%20ME%20LOVE%20ME.mp3"
+        file: "music/LOVE%20ME%20LOVE%20ME.mp3",
+        artwork: "music/salman%20bhaii.png"
     },
 
     {
         title: "O O JAANE JAANA",
         artist: "Salman Hits",
-        src: "music/O%20O%20JAANE%20JAANA.mp3"
+        file: "music/O%20O%20JAANE%20JAANA.mp3",
+        artwork: "music/salman%20bhaii.png"
     },
 
     {
         title: "PEHLI PEHLI BAAR MOHABBAT KI HAI",
         artist: "Salman Hits",
-        src: "music/PEHLI%20PEHLI%20BAAR%20MOHABBAT%20KI%20HAI.mp3"
+        file: "music/PEHLI%20PEHLI%20BAAR%20MOHABBAT%20KI%20HAI.mp3",
+        artwork: "music/salman%20bhaii.png"
     },
 
     {
         title: "Saathiya Tune Kya Kiya",
         artist: "Salman Hits",
-        src: "music/Saathiya%20Tune%20Kya%20Kiya.mp3"
-    },
-
-    {
-        title: "TERE NAAM",
-        artist: "Salman Hits",
-        src: "music/TERE%20NAAM.mp3"
+        file: "music/Saathiya%20Tune%20Kya%20Kiya.mp3",
+        artwork: "music/salman%20bhaii.png"
     },
 
     {
         title: "Tan Tana Tan Tan",
         artist: "Salman Hits",
-        src: "music/Tan%20Tana%20Tan%20Tan.mp3"
+        file: "music/Tan%20Tana%20Tan%20Tan.mp3",
+        artwork: "music/salman%20bhaii.png"
+    },
+
+    {
+        title: "TERE NAAM",
+        artist: "Salman Hits",
+        file: "music/TERE%20NAAM.mp3",
+        artwork: "music/salman%20bhaii.png"
     }
 
 ];
 
 
-// =========================================
-// AUDIO PLAYER
-// =========================================
+/* =========================================
+   VARIABLES
+========================================= */
 
-const audio = new Audio();
+let currentSongIndex = 0;
 
-let currentSong = 0;
+let isPlaying = false;
 
 
-// =========================================
-// GET HTML ELEMENTS
-// =========================================
+/* =========================================
+   HTML ELEMENTS
+========================================= */
+
+const audioPlayer =
+    document.getElementById("audio-player");
 
 const playButton =
     document.getElementById("play");
 
-const previousButton =
-    document.getElementById("previous");
-
 const nextButton =
     document.getElementById("next");
+
+const previousButton =
+    document.getElementById("previous");
 
 const progress =
     document.getElementById("progress");
 
-const currentTime =
+const currentTimeDisplay =
     document.getElementById("current-time");
 
-const totalTime =
+const totalTimeDisplay =
     document.getElementById("total-time");
 
 const songTitle =
@@ -125,87 +151,75 @@ const clock =
     document.getElementById("clock");
 
 
-// =========================================
-// CLOCK
-// =========================================
-
-function updateClock() {
-
-    const now = new Date();
-
-    let hours = now.getHours();
-
-    const minutes =
-        String(now.getMinutes()).padStart(2, "0");
-
-    const seconds =
-        String(now.getSeconds()).padStart(2, "0");
-
-    const ampm =
-        hours >= 12 ? "PM" : "AM";
-
-    hours =
-        hours % 12 || 12;
-
-    clock.textContent =
-        `${hours}:${minutes} ${ampm}`;
-}
-
-updateClock();
-
-setInterval(updateClock, 1000);
-
-
-// =========================================
-// LOAD SONG
-// =========================================
+/* =========================================
+   LOAD SONG
+========================================= */
 
 function loadSong(index) {
 
-    currentSong = index;
+    const song = playlist[index];
 
-    const song =
-        playlist[currentSong];
+    if (!song) {
+        return;
+    }
 
-    songTitle.textContent =
-        song.title;
 
-    artistName.textContent =
-        song.artist;
+    /* Set audio file */
 
-    albumImage.src =
-        song.artwork;
+    audioPlayer.src = song.file;
 
-    audio.src =
-        song.src;
 
-    audio.load();
+    /* Load audio */
+
+    audioPlayer.load();
+
+
+    /* Update song information */
+
+    songTitle.textContent = song.title;
+
+    artistName.textContent = song.artist;
+
+
+    /* Update artwork */
+
+    albumImage.src = song.artwork;
+
+
+    /* Reset progress */
 
     progress.value = 0;
 
-    currentTime.textContent =
-        "0:00";
+    currentTimeDisplay.textContent = "0:00";
 
-    totalTime.textContent =
-        "0:00";
+    totalTimeDisplay.textContent = "0:00";
 
-    playButton.textContent =
-        "▶";
 
+    /* Update browser tab */
+
+    document.title =
+        `${song.title} - Salman Hits`;
 }
 
 
-// =========================================
-// PLAY
-// =========================================
+/* =========================================
+   PLAY SONG
+========================================= */
 
 function playSong() {
 
-    audio.play()
+    audioPlayer
+        .play()
         .then(() => {
 
-            playButton.textContent =
-                "❚❚";
+            isPlaying = true;
+
+            playButton.textContent = "❚❚";
+
+            playButton.setAttribute(
+                "aria-label",
+                "Pause"
+            );
 
         })
         .catch((error) => {
@@ -215,44 +229,44 @@ function playSong() {
                 error
             );
 
-            alert(
-                "The song could not be played. Check the MP3 filename in the music folder."
-            );
-
         });
-
 }
 
 
-// =========================================
-// PAUSE
-// =========================================
+/* =========================================
+   PAUSE SONG
+========================================= */
 
 function pauseSong() {
 
-    audio.pause();
+    audioPlayer.pause();
 
-    playButton.textContent =
-        "▶";
+    isPlaying = false;
 
+    playButton.textContent = "▶";
+
+    playButton.setAttribute(
+        "aria-label",
+        "Play"
+    );
 }
 
 
-// =========================================
-// PLAY / PAUSE BUTTON
-// =========================================
+/* =========================================
+   PLAY / PAUSE BUTTON
+========================================= */
 
 playButton.addEventListener(
     "click",
     () => {
 
-        if (audio.paused) {
+        if (isPlaying) {
 
-            playSong();
+            pauseSong();
 
         } else {
 
-            pauseSong();
+            playSong();
 
         }
 
@@ -260,28 +274,29 @@ playButton.addEventListener(
 );
 
 
-// =========================================
-// NEXT SONG
-// =========================================
+/* =========================================
+   NEXT SONG
+========================================= */
 
 function nextSong() {
 
-    currentSong++;
+    currentSongIndex++;
 
     if (
-        currentSong >=
+        currentSongIndex >=
         playlist.length
     ) {
 
-        currentSong = 0;
+        currentSongIndex = 0;
 
     }
 
-    loadSong(currentSong);
+
+    loadSong(currentSongIndex);
 
     playSong();
-
 }
+
 
 nextButton.addEventListener(
     "click",
@@ -289,26 +304,27 @@ nextButton.addEventListener(
 );
 
 
-// =========================================
-// PREVIOUS SONG
-// =========================================
+/* =========================================
+   PREVIOUS SONG
+========================================= */
 
 function previousSong() {
 
-    currentSong--;
+    currentSongIndex--;
 
-    if (currentSong < 0) {
+    if (currentSongIndex < 0) {
 
-        currentSong =
+        currentSongIndex =
             playlist.length - 1;
 
     }
 
-    loadSong(currentSong);
+
+    loadSong(currentSongIndex);
 
     playSong();
-
 }
+
 
 previousButton.addEventListener(
     "click",
@@ -316,11 +332,11 @@ previousButton.addEventListener(
 );
 
 
-// =========================================
-// WHEN SONG ENDS
-// =========================================
+/* =========================================
+   SONG ENDED
+========================================= */
 
-audio.addEventListener(
+audioPlayer.addEventListener(
     "ended",
     () => {
 
@@ -330,78 +346,104 @@ audio.addEventListener(
 );
 
 
-// =========================================
-// UPDATE PROGRESS
-// =========================================
+/* =========================================
+   AUDIO LOADED
+========================================= */
 
-audio.addEventListener(
+audioPlayer.addEventListener(
+    "loadedmetadata",
+    () => {
+
+        if (
+            isNaN(audioPlayer.duration)
+        ) {
+
+            return;
+
+        }
+
+
+        totalTimeDisplay.textContent =
+            formatTime(
+                audioPlayer.duration
+            );
+
+    }
+);
+
+
+/* =========================================
+   UPDATE PROGRESS
+========================================= */
+
+audioPlayer.addEventListener(
     "timeupdate",
     () => {
 
-        if (!audio.duration) {
+        if (
+            !audioPlayer.duration ||
+            isNaN(audioPlayer.duration)
+        ) {
+
             return;
+
         }
+
 
         const percentage =
             (
-                audio.currentTime /
-                audio.duration
+                audioPlayer.currentTime /
+                audioPlayer.duration
             ) * 100;
+
 
         progress.value =
             percentage;
 
-        currentTime.textContent =
+
+        currentTimeDisplay.textContent =
             formatTime(
-                audio.currentTime
+                audioPlayer.currentTime
             );
 
     }
 );
 
 
-// =========================================
-// LOAD TOTAL DURATION
-// =========================================
-
-audio.addEventListener(
-    "loadedmetadata",
-    () => {
-
-        totalTime.textContent =
-            formatTime(
-                audio.duration
-            );
-
-    }
-);
-
-
-// =========================================
-// PROGRESS SLIDER
-// =========================================
+/* =========================================
+   PROGRESS BAR CLICK / DRAG
+========================================= */
 
 progress.addEventListener(
     "input",
     () => {
 
-        if (!audio.duration) {
+        if (
+            !audioPlayer.duration ||
+            isNaN(audioPlayer.duration)
+        ) {
+
             return;
+
         }
 
-        audio.currentTime =
+
+        const newTime =
             (
                 progress.value / 100
-            ) *
-            audio.duration;
+            ) * audioPlayer.duration;
+
+
+        audioPlayer.currentTime =
+            newTime;
 
     }
 );
 
 
-// =========================================
-// FORMAT TIME
-// =========================================
+/* =========================================
+   FORMAT TIME
+========================================= */
 
 function formatTime(seconds) {
 
@@ -414,15 +456,18 @@ function formatTime(seconds) {
 
     }
 
+
     const minutes =
         Math.floor(
             seconds / 60
         );
 
+
     const remainingSeconds =
         Math.floor(
             seconds % 60
         );
+
 
     return (
         minutes +
@@ -435,8 +480,58 @@ function formatTime(seconds) {
 }
 
 
-// =========================================
-// START WITH FIRST SONG
-// =========================================
+/* =========================================
+   CLOCK
+========================================= */
 
-loadSong(0);
+function updateClock() {
+
+    const now =
+        new Date();
+
+
+    let hours =
+        now.getHours();
+
+
+    const minutes =
+        String(
+            now.getMinutes()
+        ).padStart(2, "0");
+
+
+    const seconds =
+        String(
+            now.getSeconds()
+        ).padStart(2, "0");
+
+
+    const period =
+        hours >= 12
+            ? "PM"
+            : "AM";
+
+
+    hours =
+        hours % 12 || 12;
+
+
+    clock.textContent =
+        `${hours}:${minutes}:${seconds} ${period}`;
+
+}
+
+
+setInterval(
+    updateClock,
+    1000
+);
+
+updateClock();
+
+
+/* =========================================
+   INITIALIZE PLAYER
+========================================= */
+
+loadSong(currentSongIndex);
