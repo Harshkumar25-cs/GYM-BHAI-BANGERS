@@ -1,6 +1,6 @@
 /* =========================================
    SALMAN HITS
-   Local Music Player
+   LOCAL MUSIC PLAYER
 ========================================= */
 
 
@@ -41,7 +41,7 @@ const playlist = [
     {
         title: "Dil Diyan Gallan",
         artist: "Salman Hits",
-        file: "music/Dil%20Diyan%20Gallan%20(From%20_Tiger%20Zinda%20Hai_).mp3",
+        file: "music/Dil%20Diyan%20Gallan%20%28From%20%2ATiger%20Zinda%20Hai%2A%29.mp3",
         artwork: "music/salman%20bhaii.png"
     },
 
@@ -88,16 +88,16 @@ const playlist = [
     },
 
     {
-        title: "Tan Tana Tan Tan",
+        title: "TERE NAAM",
         artist: "Salman Hits",
-        file: "music/Tan%20Tana%20Tan%20Tan.mp3",
+        file: "music/TERE%20NAAM.mp3",
         artwork: "music/salman%20bhaii.png"
     },
 
     {
-        title: "TERE NAAM",
+        title: "Tan Tana Tan Tan",
         artist: "Salman Hits",
-        file: "music/TERE%20NAAM.mp3",
+        file: "music/Tan%20Tana%20Tan%20Tan.mp3",
         artwork: "music/salman%20bhaii.png"
     }
 
@@ -105,7 +105,7 @@ const playlist = [
 
 
 /* =========================================
-   VARIABLES
+   PLAYER VARIABLES
 ========================================= */
 
 let currentSongIndex = 0;
@@ -163,30 +163,15 @@ function loadSong(index) {
         return;
     }
 
-
-    /* Set audio file */
-
     audioPlayer.src = song.file;
 
-
-    /* Load audio */
-
     audioPlayer.load();
-
-
-    /* Update song information */
 
     songTitle.textContent = song.title;
 
     artistName.textContent = song.artist;
 
-
-    /* Update artwork */
-
     albumImage.src = song.artwork;
-
-
-    /* Reset progress */
 
     progress.value = 0;
 
@@ -194,22 +179,24 @@ function loadSong(index) {
 
     totalTimeDisplay.textContent = "0:00";
 
-
-    /* Update browser tab */
-
     document.title =
         `${song.title} - Salman Hits`;
+
+    console.log(
+        "Loaded:",
+        song.title,
+        song.file
+    );
 }
 
 
 /* =========================================
-   PLAY SONG
+   PLAY
 ========================================= */
 
 function playSong() {
 
-    audioPlayer
-        .play()
+    audioPlayer.play()
         .then(() => {
 
             isPlaying = true;
@@ -225,7 +212,7 @@ function playSong() {
         .catch((error) => {
 
             console.error(
-                "Unable to play audio:",
+                "Audio playback error:",
                 error
             );
 
@@ -234,7 +221,7 @@ function playSong() {
 
 
 /* =========================================
-   PAUSE SONG
+   PAUSE
 ========================================= */
 
 function pauseSong() {
@@ -253,12 +240,12 @@ function pauseSong() {
 
 
 /* =========================================
-   PLAY / PAUSE BUTTON
+   PLAY / PAUSE
 ========================================= */
 
 playButton.addEventListener(
     "click",
-    () => {
+    function () {
 
         if (isPlaying) {
 
@@ -275,7 +262,7 @@ playButton.addEventListener(
 
 
 /* =========================================
-   NEXT SONG
+   NEXT
 ========================================= */
 
 function nextSong() {
@@ -291,7 +278,6 @@ function nextSong() {
 
     }
 
-
     loadSong(currentSongIndex);
 
     playSong();
@@ -305,7 +291,7 @@ nextButton.addEventListener(
 
 
 /* =========================================
-   PREVIOUS SONG
+   PREVIOUS
 ========================================= */
 
 function previousSong() {
@@ -318,7 +304,6 @@ function previousSong() {
             playlist.length - 1;
 
     }
-
 
     loadSong(currentSongIndex);
 
@@ -333,12 +318,12 @@ previousButton.addEventListener(
 
 
 /* =========================================
-   SONG ENDED
+   AUTOMATICALLY PLAY NEXT
 ========================================= */
 
 audioPlayer.addEventListener(
     "ended",
-    () => {
+    function () {
 
         nextSong();
 
@@ -347,38 +332,57 @@ audioPlayer.addEventListener(
 
 
 /* =========================================
-   AUDIO LOADED
+   AUDIO ERROR
+========================================= */
+
+audioPlayer.addEventListener(
+    "error",
+    function () {
+
+        console.error(
+            "Could not load:",
+            playlist[currentSongIndex].file
+        );
+
+        songTitle.textContent =
+            "Unable to load song";
+
+        artistName.textContent =
+            "Check the MP3 filename";
+    }
+);
+
+
+/* =========================================
+   LOADED METADATA
 ========================================= */
 
 audioPlayer.addEventListener(
     "loadedmetadata",
-    () => {
+    function () {
 
         if (
-            isNaN(audioPlayer.duration)
+            !isNaN(audioPlayer.duration)
         ) {
 
-            return;
+            totalTimeDisplay.textContent =
+                formatTime(
+                    audioPlayer.duration
+                );
 
         }
-
-
-        totalTimeDisplay.textContent =
-            formatTime(
-                audioPlayer.duration
-            );
 
     }
 );
 
 
 /* =========================================
-   UPDATE PROGRESS
+   TIME UPDATE
 ========================================= */
 
 audioPlayer.addEventListener(
     "timeupdate",
-    () => {
+    function () {
 
         if (
             !audioPlayer.duration ||
@@ -389,17 +393,14 @@ audioPlayer.addEventListener(
 
         }
 
-
         const percentage =
             (
                 audioPlayer.currentTime /
                 audioPlayer.duration
             ) * 100;
 
-
         progress.value =
             percentage;
-
 
         currentTimeDisplay.textContent =
             formatTime(
@@ -411,12 +412,12 @@ audioPlayer.addEventListener(
 
 
 /* =========================================
-   PROGRESS BAR CLICK / DRAG
+   PROGRESS BAR
 ========================================= */
 
 progress.addEventListener(
     "input",
-    () => {
+    function () {
 
         if (
             !audioPlayer.duration ||
@@ -427,12 +428,10 @@ progress.addEventListener(
 
         }
 
-
         const newTime =
             (
                 progress.value / 100
             ) * audioPlayer.duration;
-
 
         audioPlayer.currentTime =
             newTime;
@@ -456,18 +455,15 @@ function formatTime(seconds) {
 
     }
 
-
     const minutes =
         Math.floor(
             seconds / 60
         );
 
-
     const remainingSeconds =
         Math.floor(
             seconds % 60
         );
-
 
     return (
         minutes +
@@ -476,7 +472,6 @@ function formatTime(seconds) {
             remainingSeconds
         ).padStart(2, "0")
     );
-
 }
 
 
@@ -489,36 +484,29 @@ function updateClock() {
     const now =
         new Date();
 
-
     let hours =
         now.getHours();
-
 
     const minutes =
         String(
             now.getMinutes()
         ).padStart(2, "0");
 
-
     const seconds =
         String(
             now.getSeconds()
         ).padStart(2, "0");
-
 
     const period =
         hours >= 12
             ? "PM"
             : "AM";
 
-
     hours =
         hours % 12 || 12;
 
-
     clock.textContent =
         `${hours}:${minutes}:${seconds} ${period}`;
-
 }
 
 
@@ -531,7 +519,7 @@ updateClock();
 
 
 /* =========================================
-   INITIALIZE PLAYER
+   INITIAL LOAD
 ========================================= */
 
 loadSong(currentSongIndex);
