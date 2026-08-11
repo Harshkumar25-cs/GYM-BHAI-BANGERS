@@ -22,7 +22,6 @@
 
 <body>
 
-
     <!-- =========================================
          BACKGROUND OVERLAY
     ========================================== -->
@@ -30,13 +29,11 @@
     <div class="background-overlay"></div>
 
 
-
     <!-- =========================================
          TOP BAR
     ========================================== -->
 
     <header class="top-bar">
-
 
         <!-- TIME -->
 
@@ -49,17 +46,26 @@
         </div>
 
 
+        <!-- ONLINE USERS -->
 
-       
+        <div class="online-status">
 
+            <span class="online-dot"></span>
+
+            <span id="online-count">
+                1
+            </span>
+
+            <span>
+                online
+            </span>
+
+        </div>
 
 
         <!-- MUSIC LINKS -->
 
         <div class="music-links">
-
-
-            <!-- SPOTIFY -->
 
             <a
                 href="https://open.spotify.com/"
@@ -83,9 +89,6 @@
             </a>
 
 
-
-            <!-- YOUTUBE MUSIC -->
-
             <a
                 href="https://music.youtube.com/"
                 target="_blank"
@@ -107,20 +110,16 @@
 
             </a>
 
-
         </div>
-
 
     </header>
 
 
-
     <!-- =========================================
-         MAIN CONTENT
+         MAIN
     ========================================== -->
 
     <main>
-
 
         <!-- =====================================
              MUSIC PLAYER
@@ -129,20 +128,17 @@
         <section class="music-player">
 
 
-            <!-- =================================
-                 ALBUM ART
-            ================================== -->
+            <!-- ALBUM ART -->
 
             <div class="album-art">
 
                 <img
                     id="album-image"
-                    src="https://i.ytimg.com/vi/Lq0S1lqEjxo/hqdefault.jpg"
-                    alt="Album Artwork"
+                    src="music/salman%20bhaii.png"
+                    alt="Salman Hits"
                 >
 
             </div>
-
 
 
             <!-- =================================
@@ -151,29 +147,18 @@
 
             <div class="song-section">
 
-
-                <!-- SONG TITLE -->
-
                 <div id="song-title">
-                    Loading...
+                    Chunnari Chunnari
                 </div>
-
-
-
-                <!-- ARTIST -->
 
                 <div id="artist-name">
-                    Loading...
+                    Salman Hits
                 </div>
 
 
-
-                <!-- =================================
-                     PROGRESS
-                ================================== -->
+                <!-- PROGRESS -->
 
                 <div class="progress-area">
-
 
                     <input
                         type="range"
@@ -187,29 +172,23 @@
 
                     <div class="time-display">
 
-
                         <span id="current-time">
                             0:00
                         </span>
-
 
                         <span id="total-time">
                             0:00
                         </span>
 
-
                     </div>
 
-
                 </div>
-
 
             </div>
 
 
-
             <!-- =================================
-                 PLAYER CONTROLS
+                 CONTROLS
             ================================== -->
 
             <div class="player-controls">
@@ -220,12 +199,11 @@
                 <button
                     id="previous"
                     class="control-button"
-                    aria-label="Previous song"
                     type="button"
+                    aria-label="Previous song"
                 >
                     ◀◀
                 </button>
-
 
 
                 <!-- PLAY / PAUSE -->
@@ -233,12 +211,11 @@
                 <button
                     id="play"
                     class="play-button"
-                    aria-label="Play"
                     type="button"
+                    aria-label="Play"
                 >
                     ▶
                 </button>
-
 
 
                 <!-- NEXT -->
@@ -246,8 +223,8 @@
                 <button
                     id="next"
                     class="control-button"
-                    aria-label="Next song"
                     type="button"
+                    aria-label="Next song"
                 >
                     ▶▶
                 </button>
@@ -255,22 +232,26 @@
 
             </div>
 
-
         </section>
-
 
     </main>
 
+
+    <!-- =========================================
+         HIDDEN LOCAL AUDIO PLAYER
+    ========================================== -->
+
+    <audio
+        id="audio-player"
+        preload="metadata"
+    ></audio>
 
 
     <!-- =========================================
          JAVASCRIPT
     ========================================== -->
 
-    <script
-        src="script.js"
-    ></script>
-
+    <script src="script.js"></script>
 
 </body>
 
