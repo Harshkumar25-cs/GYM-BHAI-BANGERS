@@ -1,67 +1,83 @@
 const playlist = [
 
     {
-        title: "GOAT",
-        artist: "Diljit Dosanjh",
-        src: "music/GOAT.mp3",
-        artwork: "https://i.ytimg.com/vi/Lq0S1lqEjxo/hqdefault.jpg"
+        title: "Chunnari Chunnari",
+        artist: "Salman Hits",
+        src: "music/Chunnari%20Chunnari.mp3"
+    },
+
+    {
+        title: "Dekha Hai Pehli Baar",
+        artist: "Salman Hits",
+        src: "music/Dekha%20Hai%20Pehli%20Baar.mp3"
+    },
+
+    {
+        title: "Dhinka Chika",
+        artist: "Salman Hits",
+        src: "music/Dhinka%20Chika.mp3"
+    },
+
+    {
+        title: "Dil Deewana",
+        artist: "Salman Hits",
+        src: "music/Dil%20Deewana.mp3"
+    },
+
+    {
+        title: "Dil Diyan Gallan",
+        artist: "Salman Hits",
+        src: "music/Dil%20Diyan%20Gallan%20(From%20_Tiger%20Zinda%20Hai_).mp3"
     },
 
     {
         title: "JALWA",
-        artist: "JALWA",
-        src: "music/JALWA.mp3",
-        artwork: "https://i.ytimg.com/vi/INIMqJ7Vy_0/hqdefault.jpg"
+        artist: "Salman Hits",
+        src: "music/JALWA.mp3"
     },
 
     {
         title: "LE LE MAZAA LE",
-        artist: "Sajid-Wajid",
-        src: "music/LE%20LE%20MAZAA%20LE.mp3",
-        artwork: "https://i.ytimg.com/vi/Q7kv9nuhTB8/hqdefault.jpg"
+        artist: "Salman Hits",
+        src: "music/LE%20LE%20MAZAA%20LE.mp3"
     },
 
     {
         title: "LOVE ME LOVE ME",
-        artist: "Sajid-Wajid",
-        src: "music/LOVE%20ME%20LOVE%20ME.mp3",
-        artwork: "https://i.ytimg.com/vi/bGNmNNZAU7c/hqdefault.jpg"
-    },
-
-    {
-        title: "HANGOVER",
-        artist: "Salman Khan",
-        src: "music/HANGOVER.mp3",
-        artwork: "https://i.ytimg.com/vi/5lKv7kdzBZs/hqdefault.jpg"
+        artist: "Salman Hits",
+        src: "music/LOVE%20ME%20LOVE%20ME.mp3"
     },
 
     {
         title: "O O JAANE JAANA",
-        artist: "Kamaal Khan",
-        src: "music/O%20O%20JAANE%20JAANA.mp3",
-        artwork: "https://i.ytimg.com/vi/GyU-glCZz3o/hqdefault.jpg"
+        artist: "Salman Hits",
+        src: "music/O%20O%20JAANE%20JAANA.mp3"
     },
 
     {
-        title: "KIYA KIYA",
-        artist: "Anand Raj Anand • Shweta Pandit",
-        src: "music/Kiya%20Kiya.mp3",
-        artwork: "https://i.ytimg.com/vi/vjK02kjgDws/hqdefault.jpg"
+        title: "PEHLI PEHLI BAAR MOHABBAT KI HAI",
+        artist: "Salman Hits",
+        src: "music/PEHLI%20PEHLI%20BAAR%20MOHABBAT%20KI%20HAI.mp3"
     },
 
     {
-        title: "Raftaarein",
-        artist: "Raftaarein",
-        src: "music/Raftaarein.mp3",
-        artwork: "https://i.ytimg.com/vi/_zZ_2rDuDtQ/hqdefault.jpg"
+        title: "Saathiya Tune Kya Kiya",
+        artist: "Salman Hits",
+        src: "music/Saathiya%20Tune%20Kya%20Kiya.mp3"
     },
 
     {
-  title: "Tera Mera Rishta Continues",
-  artist: "Awarapan 2",
-  src: "music/Tera%20Mera%20Rishta%20Continues.mp3",
-  artwork: "https://i.ytimg.com/vi/W-DwNBbkU20/hqdefault.jpg"
-}
+        title: "TERE NAAM",
+        artist: "Salman Hits",
+        src: "music/TERE%20NAAM.mp3"
+    },
+
+    {
+        title: "Tan Tana Tan Tan",
+        artist: "Salman Hits",
+        src: "music/Tan%20Tana%20Tan%20Tan.mp3"
+    }
+
 ];
 
 
