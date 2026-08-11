@@ -1,12 +1,9 @@
 /* =========================================
    SALMAN HITS
-   Main Website Styling
 ========================================= */
 
 
-/* =========================================
-   RESET
-========================================= */
+/* RESET */
 
 * {
     margin: 0;
@@ -15,9 +12,7 @@
 }
 
 
-/* =========================================
-   HTML / BODY
-========================================= */
+/* BODY */
 
 html,
 body {
@@ -26,46 +21,45 @@ body {
 }
 
 body {
+
     min-height: 100vh;
 
     overflow: hidden;
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
     color: white;
 
-    position: relative;
-
-    /*
-       IMPORTANT:
-       bg.png is in the same folder as
-       index.html and style.css
-    */
-
-    background-image: url("./bg.png");
+    background-image:
+        url("./bg.png");
 
     background-size: cover;
 
-    background-position: center center;
+    background-position: center;
 
     background-repeat: no-repeat;
 
     background-attachment: fixed;
 
     background-color: #222;
+
+    position: relative;
 }
 
 
-/* =========================================
-   BACKGROUND OVERLAY
-========================================= */
+/* BACKGROUND OVERLAY */
 
 .background-overlay {
+
     position: fixed;
 
     inset: 0;
 
-    background: rgba(0, 0, 0, 0.30);
+    background:
+        rgba(0, 0, 0, 0.30);
 
     z-index: 0;
 
@@ -73,20 +67,21 @@ body {
 }
 
 
-/* =========================================
-   TOP BAR
-========================================= */
+/* TOP BAR */
 
 .top-bar {
+
     position: fixed;
 
     top: 0;
     left: 0;
 
     width: 100%;
+
     height: 70px;
 
-    padding: 0 28px;
+    padding:
+        0 28px;
 
     display: flex;
 
@@ -98,36 +93,37 @@ body {
 }
 
 
-/* =========================================
-   TIME
-========================================= */
+/* CLOCK */
 
 .top-left {
+
     display: flex;
 
     align-items: center;
 }
 
 #clock {
+
     font-size: 16px;
 
     font-weight: 600;
 
     text-shadow:
-        0 2px 5px rgba(0, 0, 0, 0.7);
+        0 2px 5px
+        rgba(0, 0, 0, 0.7);
 }
 
 
-/* =========================================
-   ONLINE STATUS
-========================================= */
+/* ONLINE */
 
 .online-status {
+
     position: absolute;
 
     left: 50%;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     display: flex;
 
@@ -139,13 +135,13 @@ body {
 
     font-weight: 600;
 
-    color: rgba(255, 255, 255, 0.95);
-
     text-shadow:
-        0 2px 5px rgba(0, 0, 0, 0.7);
+        0 2px 5px
+        rgba(0, 0, 0, 0.7);
 }
 
 .online-dot {
+
     width: 12px;
 
     height: 12px;
@@ -155,15 +151,15 @@ body {
     background: #18e879;
 
     box-shadow:
-        0 0 10px rgba(24, 232, 121, 0.9);
+        0 0 10px
+        rgba(24, 232, 121, 0.9);
 }
 
 
-/* =========================================
-   MUSIC LINKS
-========================================= */
+/* MUSIC LINKS */
 
 .music-links {
+
     display: flex;
 
     align-items: center;
@@ -172,6 +168,7 @@ body {
 }
 
 .music-link {
+
     display: flex;
 
     align-items: center;
@@ -190,49 +187,31 @@ body {
 
     border-radius: 8px;
 
-    transition:
-        background 0.2s ease,
-        transform 0.2s ease;
+    transition: 0.2s ease;
 }
 
 .music-link:hover {
-    background: rgba(255, 255, 255, 0.12);
 
-    transform: translateY(-1px);
+    background:
+        rgba(255, 255, 255, 0.12);
+
+    transform:
+        translateY(-1px);
 }
 
 .external {
+
     font-size: 14px;
 
     opacity: 0.8;
 }
 
 
-/* =========================================
-   MUSIC ICONS
-========================================= */
+/* ICONS */
 
-.spotify-icon {
-    width: 20px;
-
-    height: 20px;
-
-    border-radius: 50%;
-
-    background: white;
-
-    color: #111;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    font-size: 11px;
-}
-
+.spotify-icon,
 .youtube-music-icon {
+
     width: 20px;
 
     height: 20px;
@@ -253,11 +232,10 @@ body {
 }
 
 
-/* =========================================
-   MAIN
-========================================= */
+/* MAIN */
 
 main {
+
     position: relative;
 
     z-index: 2;
@@ -268,24 +246,29 @@ main {
 }
 
 
-/* =========================================
-   MUSIC PLAYER
-========================================= */
+/* PLAYER */
 
 .music-player {
+
     position: fixed;
 
     left: 50%;
 
     bottom: 85px;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
-    width: min(770px, calc(100% - 40px));
+    width:
+        min(
+            770px,
+            calc(100% - 40px)
+        );
 
     min-height: 140px;
 
-    padding: 16px 20px;
+    padding:
+        16px 20px;
 
     display: flex;
 
@@ -302,26 +285,30 @@ main {
             rgba(135, 67, 52, 0.90)
         );
 
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.18);
 
     box-shadow:
-        0 15px 45px rgba(0, 0, 0, 0.50),
-        inset 0 1px 1px rgba(255, 255, 255, 0.12);
+        0 15px 45px
+        rgba(0, 0, 0, 0.50);
 
-    backdrop-filter: blur(14px);
+    backdrop-filter:
+        blur(14px);
 
-    -webkit-backdrop-filter: blur(14px);
+    -webkit-backdrop-filter:
+        blur(14px);
 
     z-index: 20;
 }
 
 
-/* =========================================
-   ALBUM ART
-========================================= */
+/* ALBUM ART */
 
 .album-art {
-    flex: 0 0 100px;
+
+    flex:
+        0 0 100px;
 
     width: 100px;
 
@@ -331,15 +318,20 @@ main {
 
     overflow: hidden;
 
-    border: 2px solid rgba(255, 255, 255, 0.35);
+    border:
+        2px solid
+        rgba(255, 255, 255, 0.35);
 
     box-shadow:
-        0 4px 15px rgba(0, 0, 0, 0.40);
+        0 4px 15px
+        rgba(0, 0, 0, 0.40);
 
-    background: rgba(0, 0, 0, 0.25);
+    background:
+        rgba(0, 0, 0, 0.25);
 }
 
 .album-art img {
+
     width: 100%;
 
     height: 100%;
@@ -350,27 +342,23 @@ main {
 }
 
 
-/* =========================================
-   SONG INFORMATION
-========================================= */
+/* SONG SECTION */
 
 .song-section {
+
     flex: 1;
 
     min-width: 0;
 
-    padding: 0 5px;
+    padding:
+        0 5px;
 }
 
 
-/*
-   IMPORTANT:
-   HTML uses IDs:
-   #song-title
-   #artist-name
-*/
+/* SONG TITLE */
 
 #song-title {
+
     font-size: 18px;
 
     font-weight: 700;
@@ -388,10 +376,15 @@ main {
     margin-bottom: 4px;
 }
 
+
+/* ARTIST */
+
 #artist-name {
+
     font-size: 14px;
 
-    color: rgba(255, 255, 255, 0.75);
+    color:
+        rgba(255, 255, 255, 0.75);
 
     white-space: nowrap;
 
@@ -401,17 +394,17 @@ main {
 }
 
 
-/* =========================================
-   PROGRESS
-========================================= */
+/* PROGRESS */
 
 .progress-area {
+
     margin-top: 13px;
 
     width: 100%;
 }
 
 #progress {
+
     width: 100%;
 
     height: 4px;
@@ -426,13 +419,15 @@ main {
 
     cursor: pointer;
 
-    background: rgba(255, 255, 255, 0.30);
+    background:
+        rgba(255, 255, 255, 0.30);
 }
 
 
-/* Chrome / Edge / Safari */
+/* PROGRESS THUMB */
 
 #progress::-webkit-slider-thumb {
+
     appearance: none;
 
     -webkit-appearance: none;
@@ -446,15 +441,10 @@ main {
     background: white;
 
     cursor: pointer;
-
-    box-shadow:
-        0 0 5px rgba(255, 255, 255, 0.6);
 }
 
-
-/* Firefox */
-
 #progress::-moz-range-thumb {
+
     width: 8px;
 
     height: 8px;
@@ -469,28 +459,28 @@ main {
 }
 
 
-/* =========================================
-   TIME DISPLAY
-========================================= */
+/* TIME */
 
 .time-display {
+
     display: flex;
 
-    justify-content: space-between;
+    justify-content:
+        space-between;
 
     margin-top: 5px;
 
     font-size: 10px;
 
-    color: rgba(255, 255, 255, 0.75);
+    color:
+        rgba(255, 255, 255, 0.75);
 }
 
 
-/* =========================================
-   PLAYER CONTROLS
-========================================= */
+/* CONTROLS */
 
 .player-controls {
+
     display: flex;
 
     align-items: center;
@@ -504,6 +494,7 @@ main {
 
 .control-button,
 .play-button {
+
     border: none;
 
     outline: none;
@@ -521,21 +512,20 @@ main {
     justify-content: center;
 
     transition:
-        transform 0.18s ease,
-        opacity 0.18s ease;
+        transform 0.18s ease;
 }
 
 .control-button {
+
     width: 35px;
 
     height: 35px;
 
     font-size: 16px;
-
-    opacity: 0.90;
 }
 
 .play-button {
+
     width: 58px;
 
     height: 58px;
@@ -549,75 +539,75 @@ main {
     font-size: 23px;
 
     box-shadow:
-        0 4px 15px rgba(0, 0, 0, 0.30);
+        0 4px 15px
+        rgba(0, 0, 0, 0.30);
 }
 
 .control-button:hover,
 .play-button:hover {
-    transform: scale(1.08);
+
+    transform:
+        scale(1.08);
 }
 
 .control-button:active,
 .play-button:active {
-    transform: scale(0.95);
+
+    transform:
+        scale(0.95);
 }
 
 
-/* =========================================
-   HIDDEN YOUTUBE PLAYER
-========================================= */
-
-#youtube-player-container {
-    display: none;
-}
-
-#youtube-player {
-    display: none;
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
+/* MOBILE */
 
 @media (max-width: 700px) {
 
     .top-bar {
+
         height: 60px;
 
-        padding: 0 15px;
+        padding:
+            0 15px;
     }
 
     #clock {
+
         font-size: 14px;
     }
 
     .online-status {
+
         display: none;
     }
 
     .music-links {
+
         gap: 5px;
     }
 
     .music-link {
+
         font-size: 13px;
 
         padding: 6px;
     }
 
     .music-link:first-child {
+
         display: none;
     }
 
     .music-player {
+
         bottom: 25px;
 
-        width: calc(100% - 20px);
+        width:
+            calc(100% - 20px);
 
         min-height: 100px;
 
-        padding: 10px 12px;
+        padding:
+            10px 12px;
 
         gap: 10px;
 
@@ -625,7 +615,9 @@ main {
     }
 
     .album-art {
-        flex: 0 0 65px;
+
+        flex:
+            0 0 65px;
 
         width: 65px;
 
@@ -633,20 +625,24 @@ main {
     }
 
     #song-title {
+
         font-size: 14px;
     }
 
     #artist-name {
+
         font-size: 11px;
     }
 
     .player-controls {
+
         gap: 7px;
 
         padding-right: 0;
     }
 
     .control-button {
+
         width: 25px;
 
         height: 25px;
@@ -655,6 +651,7 @@ main {
     }
 
     .play-button {
+
         width: 42px;
 
         height: 42px;
@@ -664,14 +661,14 @@ main {
 }
 
 
-/* =========================================
-   VERY SMALL SCREENS
-========================================= */
+/* VERY SMALL SCREEN */
 
 @media (max-width: 420px) {
 
     .album-art {
-        flex: 0 0 55px;
+
+        flex:
+            0 0 55px;
 
         width: 55px;
 
@@ -679,22 +676,26 @@ main {
     }
 
     .music-player {
+
         gap: 8px;
 
         padding: 9px;
     }
 
     .player-controls {
+
         gap: 3px;
     }
 
     .control-button {
+
         width: 22px;
 
         font-size: 10px;
     }
 
     .play-button {
+
         width: 38px;
 
         height: 38px;
