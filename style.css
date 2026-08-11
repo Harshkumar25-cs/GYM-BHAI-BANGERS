@@ -31,8 +31,7 @@ body {
 
     color: white;
 
-    background-image: url("gym-bg.png");
-
+background-image: url("./bg.png");
     background-size: cover;
 
     background-position: center;
