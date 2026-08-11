@@ -1,10 +1,12 @@
 /* =========================================
-   GYM BHAI BANGERS
+   SALMAN HITS
    Main Website Styling
 ========================================= */
 
 
-/* ---------- RESET ---------- */
+/* =========================================
+   RESET
+========================================= */
 
 * {
     margin: 0;
@@ -13,14 +15,15 @@
 }
 
 
-/* ---------- BODY ---------- */
+/* =========================================
+   HTML / BODY
+========================================= */
 
 html,
 body {
     width: 100%;
     height: 100%;
 }
-
 
 body {
     min-height: 100vh;
@@ -31,27 +34,38 @@ body {
 
     color: white;
 
-background-image: url("./bg.png");
+    position: relative;
+
+    /*
+       IMPORTANT:
+       bg.png is in the same folder as
+       index.html and style.css
+    */
+
+    background-image: url("./bg.png");
+
     background-size: cover;
 
-    background-position: center;
+    background-position: center center;
 
     background-repeat: no-repeat;
 
     background-attachment: fixed;
 
-    position: relative;
+    background-color: #222;
 }
 
 
-/* ---------- DARK OVERLAY ---------- */
+/* =========================================
+   BACKGROUND OVERLAY
+========================================= */
 
 .background-overlay {
     position: fixed;
 
     inset: 0;
 
-    background: rgba(0, 0, 0, 0.32);
+    background: rgba(0, 0, 0, 0.30);
 
     z-index: 0;
 
@@ -67,11 +81,9 @@ background-image: url("./bg.png");
     position: fixed;
 
     top: 0;
-
     left: 0;
 
     width: 100%;
-
     height: 70px;
 
     padding: 0 28px;
@@ -86,7 +98,9 @@ background-image: url("./bg.png");
 }
 
 
-/* ---------- TIME ---------- */
+/* =========================================
+   TIME
+========================================= */
 
 .top-left {
     display: flex;
@@ -94,18 +108,19 @@ background-image: url("./bg.png");
     align-items: center;
 }
 
-
 #clock {
     font-size: 16px;
 
     font-weight: 600;
 
     text-shadow:
-        0 2px 5px rgba(0, 0, 0, 0.6);
+        0 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 
-/* ---------- ONLINE ---------- */
+/* =========================================
+   ONLINE STATUS
+========================================= */
 
 .online-status {
     position: absolute;
@@ -124,12 +139,11 @@ background-image: url("./bg.png");
 
     font-weight: 600;
 
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.95);
 
     text-shadow:
-        0 2px 5px rgba(0, 0, 0, 0.6);
+        0 2px 5px rgba(0, 0, 0, 0.7);
 }
-
 
 .online-dot {
     width: 12px;
@@ -141,11 +155,13 @@ background-image: url("./bg.png");
     background: #18e879;
 
     box-shadow:
-        0 0 10px rgba(24, 232, 121, 0.8);
+        0 0 10px rgba(24, 232, 121, 0.9);
 }
 
 
-/* ---------- MUSIC LINKS ---------- */
+/* =========================================
+   MUSIC LINKS
+========================================= */
 
 .music-links {
     display: flex;
@@ -154,7 +170,6 @@ background-image: url("./bg.png");
 
     gap: 25px;
 }
-
 
 .music-link {
     display: flex;
@@ -180,13 +195,11 @@ background-image: url("./bg.png");
         transform 0.2s ease;
 }
 
-
 .music-link:hover {
     background: rgba(255, 255, 255, 0.12);
 
     transform: translateY(-1px);
 }
-
 
 .external {
     font-size: 14px;
@@ -195,7 +208,9 @@ background-image: url("./bg.png");
 }
 
 
-/* ---------- MUSIC ICONS ---------- */
+/* =========================================
+   MUSIC ICONS
+========================================= */
 
 .spotify-icon {
     width: 20px;
@@ -216,7 +231,6 @@ background-image: url("./bg.png");
 
     font-size: 11px;
 }
-
 
 .youtube-music-icon {
     width: 20px;
@@ -267,31 +281,31 @@ main {
 
     transform: translateX(-50%);
 
-    width: min(660px, calc(100% - 40px));
+    width: min(770px, calc(100% - 40px));
 
-    min-height: 120px;
+    min-height: 140px;
 
-    padding: 14px 18px;
+    padding: 16px 20px;
 
     display: flex;
 
     align-items: center;
 
-    gap: 16px;
+    gap: 20px;
 
     border-radius: 34px;
 
     background:
         linear-gradient(
             135deg,
-            rgba(115, 65, 48, 0.92),
-            rgba(135, 67, 52, 0.88)
+            rgba(115, 65, 48, 0.94),
+            rgba(135, 67, 52, 0.90)
         );
 
     border: 1px solid rgba(255, 255, 255, 0.18);
 
     box-shadow:
-        0 15px 45px rgba(0, 0, 0, 0.45),
+        0 15px 45px rgba(0, 0, 0, 0.50),
         inset 0 1px 1px rgba(255, 255, 255, 0.12);
 
     backdrop-filter: blur(14px);
@@ -307,22 +321,23 @@ main {
 ========================================= */
 
 .album-art {
-    flex: 0 0 88px;
+    flex: 0 0 100px;
 
-    width: 88px;
+    width: 100px;
 
-    height: 88px;
+    height: 100px;
 
     border-radius: 50%;
 
     overflow: hidden;
 
-    border: 2px solid rgba(255, 255, 255, 0.25);
+    border: 2px solid rgba(255, 255, 255, 0.35);
 
     box-shadow:
-        0 4px 15px rgba(0, 0, 0, 0.35);
-}
+        0 4px 15px rgba(0, 0, 0, 0.40);
 
+    background: rgba(0, 0, 0, 0.25);
+}
 
 .album-art img {
     width: 100%;
@@ -348,12 +363,21 @@ main {
 }
 
 
-.song-title {
-    font-size: 16px;
+/*
+   IMPORTANT:
+   HTML uses IDs:
+   #song-title
+   #artist-name
+*/
+
+#song-title {
+    font-size: 18px;
 
     font-weight: 700;
 
     line-height: 1.3;
+
+    color: white;
 
     white-space: nowrap;
 
@@ -364,11 +388,10 @@ main {
     margin-bottom: 4px;
 }
 
+#artist-name {
+    font-size: 14px;
 
-.artist-name {
-    font-size: 13px;
-
-    color: rgba(255, 255, 255, 0.72);
+    color: rgba(255, 255, 255, 0.75);
 
     white-space: nowrap;
 
@@ -388,7 +411,6 @@ main {
     width: 100%;
 }
 
-
 #progress {
     width: 100%;
 
@@ -404,7 +426,7 @@ main {
 
     cursor: pointer;
 
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.30);
 }
 
 
@@ -415,9 +437,9 @@ main {
 
     -webkit-appearance: none;
 
-    width: 7px;
+    width: 8px;
 
-    height: 7px;
+    height: 8px;
 
     border-radius: 50%;
 
@@ -426,16 +448,16 @@ main {
     cursor: pointer;
 
     box-shadow:
-        0 0 5px rgba(255, 255, 255, 0.5);
+        0 0 5px rgba(255, 255, 255, 0.6);
 }
 
 
 /* Firefox */
 
 #progress::-moz-range-thumb {
-    width: 7px;
+    width: 8px;
 
-    height: 7px;
+    height: 8px;
 
     border: none;
 
@@ -447,7 +469,9 @@ main {
 }
 
 
-/* ---------- TIME ---------- */
+/* =========================================
+   TIME DISPLAY
+========================================= */
 
 .time-display {
     display: flex;
@@ -478,7 +502,6 @@ main {
     padding-right: 8px;
 }
 
-
 .control-button,
 .play-button {
     border: none;
@@ -502,22 +525,20 @@ main {
         opacity 0.18s ease;
 }
 
-
 .control-button {
-    width: 30px;
+    width: 35px;
 
-    height: 30px;
+    height: 35px;
 
-    font-size: 14px;
+    font-size: 16px;
 
-    opacity: 0.85;
+    opacity: 0.90;
 }
 
-
 .play-button {
-    width: 50px;
+    width: 58px;
 
-    height: 50px;
+    height: 58px;
 
     border-radius: 50%;
 
@@ -525,18 +546,16 @@ main {
 
     color: #111;
 
-    font-size: 20px;
+    font-size: 23px;
 
     box-shadow:
-        0 4px 15px rgba(0, 0, 0, 0.25);
+        0 4px 15px rgba(0, 0, 0, 0.30);
 }
-
 
 .control-button:hover,
 .play-button:hover {
     transform: scale(1.08);
 }
-
 
 .control-button:active,
 .play-button:active {
@@ -546,35 +565,16 @@ main {
 
 /* =========================================
    HIDDEN YOUTUBE PLAYER
-   YouTube requires at least 200x200
 ========================================= */
 
 #youtube-player-container {
-    position: fixed;
-
-    width: 200px;
-
-    height: 200px;
-
-    left: -220px;
-
-    top: 0;
-
-    overflow: hidden;
-
-    opacity: 0;
-
-    pointer-events: none;
-
-    z-index: -1;
+    display: none;
 }
-
 
 #youtube-player {
-    width: 200px;
-
-    height: 200px;
+    display: none;
 }
+
 
 /* =========================================
    MOBILE
@@ -588,21 +588,17 @@ main {
         padding: 0 15px;
     }
 
-
     #clock {
         font-size: 14px;
     }
-
 
     .online-status {
         display: none;
     }
 
-
     .music-links {
         gap: 5px;
     }
-
 
     .music-link {
         font-size: 13px;
@@ -610,11 +606,9 @@ main {
         padding: 6px;
     }
 
-
     .music-link:first-child {
         display: none;
     }
-
 
     .music-player {
         bottom: 25px;
@@ -630,7 +624,6 @@ main {
         border-radius: 28px;
     }
 
-
     .album-art {
         flex: 0 0 65px;
 
@@ -639,23 +632,19 @@ main {
         height: 65px;
     }
 
-
-    .song-title {
+    #song-title {
         font-size: 14px;
     }
 
-
-    .artist-name {
+    #artist-name {
         font-size: 11px;
     }
-
 
     .player-controls {
         gap: 7px;
 
         padding-right: 0;
     }
-
 
     .control-button {
         width: 25px;
@@ -665,7 +654,6 @@ main {
         font-size: 11px;
     }
 
-
     .play-button {
         width: 42px;
 
@@ -673,7 +661,6 @@ main {
 
         font-size: 17px;
     }
-
 }
 
 
@@ -691,25 +678,21 @@ main {
         height: 55px;
     }
 
-
     .music-player {
         gap: 8px;
 
         padding: 9px;
     }
 
-
     .player-controls {
         gap: 3px;
     }
-
 
     .control-button {
         width: 22px;
 
         font-size: 10px;
     }
-
 
     .play-button {
         width: 38px;
@@ -718,5 +701,4 @@ main {
 
         font-size: 15px;
     }
-
 }
